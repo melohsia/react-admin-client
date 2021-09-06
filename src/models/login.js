@@ -1,5 +1,6 @@
 import { resultHandler } from '@/utils/resultHandler';
 import { accountLogin } from '@/services/api/login';
+import Auth from '@/common/auth'
 
 export default {
   namespace: 'login',
@@ -8,13 +9,12 @@ export default {
   },
   effects: {
     *getLogin({ payload }, { call, put }) {
-      console.log('payload', payload)
       const { isSuccess, data } = resultHandler(yield call(accountLogin, payload));
       const loginResult = isSuccess ? data : [];
-      console.log('loginResult', loginResult)
+      isSuccess && Auth.setAuthInfo(JSON.stringify(loginResult))
+      return new Promise((resolve) => {
+        resolve(isSuccess)
+      })
     }
-  },
-  reducers: {
-
-  },
+  }
 }

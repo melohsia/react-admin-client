@@ -1,18 +1,11 @@
-import React, { Component } from 'react'
-// import {getAll} from '@/services/api/login_api'
+import React from 'react'
 
-export default class Admin extends Component {
-
-
-    // componentDidMount (){
-    //     getAll()
-    // }
-
-    render() {
-        return (
-            <div>
-                Admin
-            </div>
-        )
-    }
+const Admin = ({}) => {
+    return(
+        <div>
+            admin
+        </div>
+    )
 }
+
+export default Admin
