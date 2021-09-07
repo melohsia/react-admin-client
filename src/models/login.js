@@ -8,7 +8,7 @@ export default {
 
   },
   effects: {
-    *getLogin({ payload }, { call, put }) {
+    * getLogin({ payload }, { call, put }) {
       const { isSuccess, data } = resultHandler(yield call(accountLogin, payload));
       const loginResult = isSuccess ? data : [];
       isSuccess && Auth.setAuthInfo(JSON.stringify(loginResult))

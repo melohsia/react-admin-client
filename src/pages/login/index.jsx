@@ -1,6 +1,7 @@
 
 // import React, { useState, useEffect, useRef, memo } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import imgUrl from '@/common/imgUrl';
 import { LOGIN_TIPS } from './config'
@@ -13,7 +14,7 @@ const Login = ({ dispatch, history }) => {
             type: 'login/getLogin',
             payload: values
         }).then((isSuccess) => {
-            isSuccess && history.replace('/')
+            isSuccess && history.replace('/fileUpload')
         })
     }
     
@@ -36,14 +37,10 @@ const Login = ({ dispatch, history }) => {
                             <Form.Item
                                 name="username"
                                 style={{ height: '30px' }}
-                                rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Username!',
-                                },
-                                ]}
+                                rules={[]}
                             >
                             <Input 
+                                prefix={<UserOutlined className="site-form-item-icon" />}
                                 style={{ height: '38px'}} 
                                 placeholder= { LOGIN_TIPS.USER_PLACE } 
                             />
@@ -52,14 +49,10 @@ const Login = ({ dispatch, history }) => {
                             <Form.Item
                                 name="password"
                                 style={{ height: '20px' }}
-                                rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Password!',
-                                },
-                                ]}
+                                rules={[]}
                             >
                                 <Input
+                                    prefix={<LockOutlined className="site-form-item-icon" />}
                                     type="password" 
                                     style={{ height: '38px'}} 
                                 />

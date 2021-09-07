@@ -10,6 +10,10 @@ const routes = [
     path: '/login',
     component: './login',
   },
+  {
+    path: '/fileUpload',
+    component: './fileUpload',
+  },
 ]
 
 export default routes;
