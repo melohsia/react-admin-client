@@ -58,7 +58,6 @@ const FileUpload = ({ dispatch, fileList }) => {
     const customRequest = async (options) => {
         const { file } = options
         const content = await read(file)
-        debugger
         //获取整个文件的hash值
         const hash = CryptoJS.MD5(content)
         const { size, name, type } = file
