@@ -1,4 +1,4 @@
-import { getFileList, deleteFileByUid } from '@/services/api/common'
+import { getFileList, uploadFile, deleteFileByUid } from '@/services/api/common'
 import { resultHandler } from '@/utils/resultHandler';
 
 export default {
@@ -16,6 +16,10 @@ export default {
                 payload: { fileList }
             })
         }
+      },
+
+      * upload({ payload }, { call, put }) {
+        const { isSuccess, data } = resultHandler(yield call(uploadFile));
       },
       * deleteFile({ payload }, { call, put }) {
         const { isSuccess, data } = resultHandler(yield call(deleteFileByUid, payload));
